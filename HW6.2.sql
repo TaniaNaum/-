@@ -1,78 +1,37 @@
-{
-  "nbformat": 4,
-  "nbformat_minor": 0,
-  "metadata": {
-    "colab": {
-      "provenance": [],
-      "mount_file_id": "1SfyZqdlWO5xisV4gqWDWYmv2JG47h1bF",
-      "authorship_tag": "ABX9TyPDEvvlqTGoAw9hD9tl7zD9",
-      "include_colab_link": true
-    },
-    "kernelspec": {
-      "name": "python3",
-      "display_name": "Python 3"
-    },
-    "language_info": {
-      "name": "python"
-    }
-  },
-  "cells": [
-    {
-      "cell_type": "markdown",
-      "metadata": {
-        "id": "view-in-github",
-        "colab_type": "text"
-      },
-      "source": [
-        "<a href=\"https://colab.research.google.com/github/TaniaNaum/-/blob/main/HW6.2.sql\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
-      ]
-    },
-    {
-      "cell_type": "code",
-      "execution_count": null,
-      "metadata": {
-        "id": "604l6LEx76Cx"
-      },
-      "outputs": [],
-      "source": [
-        "Create Table ci\n",
-        "  (Id SERIAL PRIMARY key,\n",
-        "   Country varchar(40) not null,\n",
-        "   City varchar(40) not null,\n",
-        "   Latitude NUMERIC,\n",
-        "   Longitude NUMERIC,\n",
-        "   Altitude NUMERIC\n",
-        "  );\n",
-        "\n",
-        "INSERT INTO ci\n",
-        "values\n",
-        "(1, 'Afghanistan',\t'Kabul',\t34.5166667,\t69.1833344,\t1808.0),\n",
-        "(2,\t'Afghanistan',\t'Kandahar',\t31.6100000,\t65.6999969,\t1015.0),\n",
-        "(3,\t'Afghanistan',\t'Mazar-e Sharif',\t36.7069444,\t67.1122208,\t369.0),\n",
-        "(4,\t'Afghanistan',\t'Herat',\t34.3400000,\t62.1899986,\t927.0),\n",
-        "(5,\t'Afghanistan',\t'Jalalabad',\t34.4200000,\t70.4499969,\t573.0),\n",
-        "(6,\t'Afghanistan',\t'Konduz',\t36.7200000,\t68.8600006,\t394.0),\n",
-        "(7,\t'Afghanistan',\t'Ghazni',\t33.5535554,\t68.4268875,\t2175.0);\n",
-        "\n",
-        "INSERT INTO ci\n",
-        "VALUES\n",
-        "(8,\t'Afghanistan',\t'Nawab City',\t31.5800000,\t64.3600006,\t775.0),\n",
-        "(9,\t'Afghanistan',\t'Gereshk',\t31.8188889,\t64.5647202,\t844.0);\n",
-        "\n",
-        "SELECT * FROM ci;\n",
-        "\n",
-        "SELECT Country, City, Altitude FROM ci\n",
-        "\n",
-        "  SELECT COUNT(*) AS ci,\n",
-        "       MIN(Latitude) AS MinLatitude,\n",
-        "       MAX(Longitude) AS MaxLongitude,\n",
-        "  from ci\n",
-        "\n",
-        "CREATE VIEW cities as\n",
-        "SELECT Country, City, Altitude FROM ci;\n",
-        "\n",
-        "SELECT * FROM ci;"
-      ]
-    }
-  ]
-}
+Create Table ci
+  (Id SERIAL PRIMARY key,
+   Country varchar(40) not null,
+   City varchar(40) not null,
+   Latitude NUMERIC,
+   Longitude NUMERIC,
+   Altitude NUMERIC
+  );
+
+INSERT INTO ci
+values
+(1, 'Afghanistan',	'Kabul',	34.5166667,	69.1833344,	1808.0),
+(2,	'Afghanistan',	'Kandahar',	31.6100000,	65.6999969,	1015.0),
+(3,	'Afghanistan',	'Mazar-e Sharif',	36.7069444,	67.1122208,	369.0),
+(4,	'Afghanistan',	'Herat',	34.3400000,	62.1899986,	927.0),
+(5,	'Afghanistan',	'Jalalabad',	34.4200000,	70.4499969,	573.0),
+(6,	'Afghanistan',	'Konduz',	36.7200000,	68.8600006,	394.0),
+(7,	'Afghanistan',	'Ghazni',	33.5535554,	68.4268875,	2175.0);
+
+INSERT INTO ci
+VALUES
+(8,	'Afghanistan',	'Nawab City',	31.5800000,	64.3600006,	775.0),
+(9,	'Afghanistan',	'Gereshk',	31.8188889,	64.5647202,	844.0);
+
+SELECT * FROM ci;
+
+SELECT Country, City, Altitude FROM ci
+
+  SELECT COUNT(*) AS ci,
+       MIN(Latitude) AS MinLatitude,
+       MAX(Longitude) AS MaxLongitude,
+  from ci
+
+CREATE VIEW cities as
+SELECT Country, City, Altitude FROM ci;
+
+SELECT * FROM ci;
